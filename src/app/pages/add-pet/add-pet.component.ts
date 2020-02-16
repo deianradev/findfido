@@ -1,11 +1,5 @@
-import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-
-import { MatInputModule } from '@angular/material/input';
-import { MatSelectModule } from '@angular/material/select';
-import { MatRadioModule } from '@angular/material/radio';
-import { MatCardModule } from '@angular/material/card';
-import { ReactiveFormsModule } from '@angular/forms';
+import { Component, ViewChild } from '@angular/core';
+import { FormBuilder, Validators, NgForm, FormGroupDirective } from '@angular/forms';
 import { PetService } from 'src/app/services/pet.service';
 
 @Component({
@@ -14,16 +8,27 @@ import { PetService } from 'src/app/services/pet.service';
   styleUrls: ['./add-pet.component.css']
 })
 export class AddPetComponent {
+  @ViewChild(FormGroupDirective) formDirective: FormGroupDirective;
+
   petForm = this.fb.group({
     name: [null, Validators.required],
     description: [null, Validators.required],
     type: ['', Validators.required]
   });
 
-
   constructor(private fb: FormBuilder, private svc: PetService) { }
 
   onSubmit() {
+    let data = Object.assign({}, this.petForm.value);
+    this.svc.addPet(data)
+      .then(
+        res => {
+          this.resetFields();
+        }
+      )
+  }
 
+  resetFields() {
+    this.formDirective.resetForm();
   }
 }

@@ -9,7 +9,7 @@ export class PetService {
 
   constructor(private firestore: AngularFirestore) { }
 
-  createPet(pet: Pet) {
+  addPet(pet: Pet) {
     return this.firestore.collection('pets').add(pet);
   }
 
