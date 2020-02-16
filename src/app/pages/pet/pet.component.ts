@@ -8,9 +8,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class PetComponent implements OnInit {
 
-  constructor(private db: AngularFirestore) {
-    const things = db.collection('pets').valueChanges();
-    things.subscribe(console.log)
+  constructor() {
   }
 
   ngOnInit(): void {
