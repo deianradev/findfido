@@ -12,12 +12,28 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { PetsListComponent } from './pages/pets-list/pets-list.component';
+import { CreatePetComponent } from './pages/create-pet/create-pet.component';
+import { PetDetailsComponent } from './pages/pet-details/pet-details.component';
+import { PetComponent } from './pages/pet/pet.component';
+
+
+/* Firebase modules */
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavComponent,
     PageNotFoundComponent,
+    PetsListComponent,
+    CreatePetComponent,
+    PetDetailsComponent,
+    PetComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +44,9 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
