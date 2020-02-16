@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'DashboardDemo'`, () => {
+  it(`should have as title 'FindFido'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('DashboardDemo');
+    expect(app.title).toEqual('FindFido');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('DashboardDemo app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('FindFido app is running!');
   });
 });
