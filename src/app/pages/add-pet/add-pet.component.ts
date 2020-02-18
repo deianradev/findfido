@@ -13,6 +13,7 @@ export class AddPetComponent {
   petForm = this.fb.group({
     name: [null, Validators.required],
     description: [null, Validators.required],
+    url: [null, Validators.required],
     type: ['', Validators.required]
   });
 

@@ -26,9 +26,19 @@
       </div>
       <div class="row">
         <div class="col">
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="Image url - i.e. http://imageofpet.com/1" formControlName="url"></textarea>
+            <mat-error *ngIf="petForm.controls['url'].hasError('required')">
+              Image url is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
           <mat-radio-group formControlName="type">
-            <mat-radio-button value="dog">Dog</mat-radio-button>
-            <mat-radio-button value="cat">Cat</mat-radio-button>
+            <mat-radio-button value="Dog">Dog</mat-radio-button>
+            <mat-radio-button value="Cat">Cat</mat-radio-button>
           </mat-radio-group>
         </div>
       </div>
