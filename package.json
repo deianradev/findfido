@@ -3,18 +3,25 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --output-path findfido --aot --prod"
+  },
+  "engines": {
+    "node": "v12.13.1",
+    "npm": "6.13.1"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "~9.0.1",
     "@angular/cdk": "^9.0.0",
+    "@angular/cli": "~9.0.2",
     "@angular/common": "~9.0.1",
     "@angular/compiler": "~9.0.1",
+    "@angular/compiler-cli": "~9.0.1",
     "@angular/core": "~9.0.1",
     "@angular/fire": "^5.4.2",
     "@angular/forms": "~9.0.1",
@@ -22,9 +29,12 @@
     "@angular/platform-browser": "~9.0.1",
     "@angular/platform-browser-dynamic": "~9.0.1",
     "@angular/router": "~9.0.1",
+    "express": "^4.17.1",
     "firebase": "^7.8.2",
+    "path": "^0.12.7",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
+    "typescript": "~3.7.5",
     "zone.js": "~0.10.2"
   },
   "devDependencies": {
