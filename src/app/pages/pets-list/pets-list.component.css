@@ -1,0 +1,19 @@
+.pet-card {
+  max-width: 400px;
+  margin: 20px auto;
+  width: 40%;
+}
+
+.filter {
+  background-color: lightgrey;
+  padding: 50px;
+}
+
+.mat-radio-button ~ .mat-radio-button {
+  margin-left: 16px;
+}
+
+.filter-card {
+  margin: 10px auto;
+  width: 90%;
+}

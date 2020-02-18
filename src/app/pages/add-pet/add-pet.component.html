@@ -1,0 +1,50 @@
+<form [formGroup]="petForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="pet-card">
+    <mat-card-header>
+      <mat-card-title>Add A Pet</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Fido" formControlName="name">
+            <mat-error *ngIf="petForm.controls['name'].hasError('required')">
+              Name of pet is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="Description" formControlName="description"></textarea>
+            <mat-error *ngIf="petForm.controls['description'].hasError('required')">
+              Description is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <textarea matInput placeholder="Image url - i.e. http://imageofpet.com/1" formControlName="url"></textarea>
+            <mat-error *ngIf="petForm.controls['url'].hasError('required')">
+              Image url is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-radio-group formControlName="type">
+            <mat-radio-button value="Dog">Dog</mat-radio-button>
+            <mat-radio-button value="Cat">Cat</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!petForm.valid">Submit</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
